@@ -86,7 +86,7 @@
       }
     </style>
   </head>
-  <body class="bg-canvas font-sans text-slate-200 antialiased">
+  <body class="bg-canvas font-sans text-slate-200 antialiased" style="background-image: url('bg.png'); background-size: cover; background-attachment: fixed;">
     <header class="border-b border-border">
       <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8" aria-label="Navegação principal">
         <a href="#" class="inline-flex items-center gap-3 text-sm font-semibold text-white" aria-label="Open Downloader — início">
@@ -128,13 +128,19 @@
               <path d="M12 3v11m0 0 4-4m-4 4-4-4M5 16v3h14v-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </a>
-          <p class="mt-3 font-mono text-[11px] text-muted">Gratuito · Windows 10/11 · código aberto</p>
-
           <div class="mt-8 px-2">
             <div id="ad-slot-top" class="ad-placeholder mx-auto" role="complementary" aria-label="Espaço para anúncio horizontal de 728 por 90">
               ad-slot-top · 728 × 90
             </div>
           </div>
+          <p class="mt-3 font-mono text-[11px] text-muted">Gratuito · Windows 10/11 · código aberto</p>
+          <img
+            src="mockup.png"
+            alt="Mockup do Open Downloader aberto em um laptop, mostrando vídeos e o progresso da fila de downloads."
+            class="mx-auto my-12 w-full max-w-4xl rounded-xl border border-gray-700 shadow-2xl"
+            width="1536"
+            height="1024"
+          />
         </div>
       </section>
 
@@ -148,38 +154,16 @@
             </p>
           </section>
 
-          <section class="mt-14" aria-labelledby="screenshot-heading">
-            <div class="mb-4 flex flex-wrap items-baseline justify-between gap-2">
-              <div>
-                <p class="font-mono text-xs text-accent">02 / por dentro</p>
-                <h2 id="screenshot-heading" class="mt-2 font-mono text-xl font-medium text-white">Uma janela. Sem truques.</h2>
-              </div>
-              <span class="font-mono text-[10px] text-muted">PRÉVIA DE INTERFACE</span>
-            </div>
-            <figure class="overflow-hidden rounded-md border border-border bg-[#010409]">
-              <div class="flex h-9 items-center gap-1.5 border-b border-border px-3">
-                <span class="h-2 w-2 rounded-full border border-border"></span>
-                <span class="h-2 w-2 rounded-full border border-border"></span>
-                <span class="h-2 w-2 rounded-full border border-border"></span>
-                <span class="ml-2 font-mono text-[10px] text-muted">Open Downloader</span>
-              </div>
-              <!-- Troque o SVG demonstrativo por um print real, por exemplo: src="assets/open-downloader.png". -->
-              <img
-                class="block h-auto w-full"
-                width="900"
-                height="500"
-                alt="Prévia demonstrativa da interface do Open Downloader; substitua por uma captura de tela real do aplicativo."
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 500'%3E%3Crect width='900' height='500' fill='%230d1117'/%3E%3Crect x='38' y='34' width='824' height='42' rx='6' fill='%23161b22' stroke='%2330363d'/%3E%3Ctext x='58' y='60' fill='%238b949e' font-family='monospace' font-size='14'%3ECole o link do vídeo aqui...%3C/text%3E%3Crect x='720' y='42' width='124' height='26' rx='4' fill='%238df0c0'/%3E%3Ctext x='752' y='60' fill='%230d1117' font-family='monospace' font-size='12'%3EAnalisar%3C/text%3E%3Ctext x='40' y='119' fill='%23e6edf3' font-family='monospace' font-size='15'%3EFila de downloads%3C/text%3E%3Crect x='38' y='139' width='824' height='82' rx='6' fill='%23161b22' stroke='%2330363d'/%3E%3Crect x='56' y='156' width='74' height='48' rx='4' fill='%2321262d'/%3E%3Cpath d='m85 168 18 12-18 12z' fill='%238df0c0'/%3E%3Ctext x='148' y='172' fill='%23e6edf3' font-family='monospace' font-size='13'%3EVideo de exemplo.mp4%3C/text%3E%3Ctext x='148' y='194' fill='%238b949e' font-family='monospace' font-size='11'%3EMP4 · Qualidade máxima%3C/text%3E%3Crect x='690' y='175' width='145' height='5' rx='2' fill='%2330363d'/%3E%3Crect x='690' y='175' width='92' height='5' rx='2' fill='%238df0c0'/%3E%3Crect x='38' y='235' width='824' height='82' rx='6' fill='%23161b22' stroke='%2330363d'/%3E%3Crect x='56' y='252' width='74' height='48' rx='4' fill='%2321262d'/%3E%3Cpath d='m85 264 18 12-18 12z' fill='%238df0c0'/%3E%3Ctext x='148' y='268' fill='%23e6edf3' font-family='monospace' font-size='13'%3EOutro video.mp4%3C/text%3E%3Ctext x='148' y='290' fill='%238b949e' font-family='monospace' font-size='11'%3ENa fila%3C/text%3E%3Crect x='690' y='271' width='145' height='5' rx='2' fill='%2330363d'/%3E%3Crect x='38' y='340' width='824' height='1' fill='%2330363d'/%3E%3Ctext x='40' y='374' fill='%238b949e' font-family='monospace' font-size='11'%3EPronto para baixar. Sem pegadinhas.%3C/text%3E%3C/svg%3E"
-              />
-              <figcaption class="border-t border-border px-4 py-2 font-mono text-[10px] text-muted">
-                Prévia ilustrativa. Substitua pelo print real do aplicativo.
-              </figcaption>
-            </figure>
-          </section>
-
           <section class="mt-14" aria-labelledby="features-heading">
             <p class="font-mono text-xs text-accent">03 / o que ele faz</p>
             <h2 id="features-heading" class="mt-3 font-mono text-xl font-medium text-white">Recursos</h2>
+            <img
+              src="features.png"
+              alt="Ícones verdes representando playlists, compressão de arquivos, edição de vídeo e downloads."
+              class="mx-auto my-6 h-auto w-full max-w-2xl rounded-md border border-border"
+              width="1672"
+              height="941"
+            />
             <div class="mt-5 grid gap-3 sm:grid-cols-2">
               <article class="rounded-md border border-border bg-surface p-5">
                 <svg viewBox="0 0 24 24" fill="none" class="h-5 w-5 text-accent" aria-hidden="true">
