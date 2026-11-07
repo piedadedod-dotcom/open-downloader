@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Um downloader de vídeos simples, sem anúncios, sem vírus e 100% open-source. Feito por um dev para a comunidade."
+    />
+    <meta name="theme-color" content="#0d1117" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Open Downloader" />
+    <meta
+      property="og:description"
+      content="Um downloader de vídeos simples, sem anúncios, sem vírus e 100% open-source."
+    />
+    <link rel="icon" type="image/svg+xml" href="../public/favicon.svg" />
+    <title>Open Downloader — simples, open-source e sem anúncios</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              canvas: "#0d1117",
+              surface: "#161b22",
+              border: "#30363d",
+              muted: "#8b949e",
+              accent: "#8df0c0",
+            },
+            fontFamily: {
+              sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+              mono: ["JetBrains Mono", "ui-monospace", "monospace"],
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      :root {
+        color-scheme: dark;
+        background: #0d1117;
+        scroll-behavior: smooth;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        min-width: 320px;
+        margin: 0;
+        background: #0d1117;
+      }
+
+      ::selection {
+        color: #0d1117;
+        background: #8df0c0;
+      }
+
+      .ad-placeholder {
+        display: grid;
+        place-items: center;
+        border: 1px dashed #30363d;
+        color: #6e7681;
+        background: #0d1117;
+        font: 11px "JetBrains Mono", ui-monospace, monospace;
+        letter-spacing: .08em;
+      }
+
+      #ad-slot-top {
+        width: min(100%, 728px);
+        min-height: 90px;
+      }
+
+      #ad-slot-side {
+        width: min(100%, 300px);
+        min-height: 250px;
+      }
+    </style>
+  </head>
+  <body class="bg-canvas font-sans text-slate-200 antialiased">
+    <header class="border-b border-border">
+      <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8" aria-label="Navegação principal">
+        <a href="#" class="inline-flex items-center gap-3 text-sm font-semibold text-white" aria-label="Open Downloader — início">
+          <span class="grid h-8 w-8 place-items-center rounded-md bg-accent text-canvas">
+            <svg viewBox="0 0 24 24" fill="none" class="h-[18px] w-[18px]" aria-hidden="true">
+              <path d="M12 3v11m0 0 4-4m-4 4-4-4M5 16v3h14v-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span>Open Downloader</span>
+        </a>
+        <a
+          href="https://github.com/piedadedod-dotcom/open-downloader"
+          class="inline-flex items-center gap-2 rounded-md border border-border px-3 py-2 text-xs font-medium text-slate-300 transition hover:border-slate-500 hover:text-white"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4" aria-hidden="true">
+            <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.23-1.62-1.23-1.62-1.01-.7.08-.69.08-.69 1.12.08 1.7 1.14 1.7 1.14.99 1.69 2.6 1.2 3.23.92.1-.72.39-1.2.7-1.48-2.47-.28-5.06-1.24-5.06-5.5 0-1.21.43-2.21 1.14-2.99-.11-.28-.5-1.42.11-2.95 0 0 .93-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.12-1.44 3.04-1.14 3.04-1.14.61 1.53.23 2.67.11 2.95.71.78 1.14 1.78 1.14 2.99 0 4.27-2.6 5.21-5.08 5.49.4.34.75 1.01.75 2.04v3.02c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z" />
+          </svg>
+          Repositório
+        </a>
+      </nav>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-5 sm:px-8">
+      <section class="border-b border-border py-16 sm:py-24">
+        <div class="mx-auto max-w-3xl text-center">
+          <p class="font-mono text-xs text-accent">open-source · windows · sem enrolação</p>
+          <h1 class="mt-5 font-mono text-3xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
+            Baixe vídeos.<br class="hidden sm:block" /> Sem pop-ups no caminho.
+          </h1>
+          <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-400 sm:text-lg">
+            Um downloader de vídeos simples, sem anúncios, sem vírus e 100% open-source. Feito por um dev para a comunidade.
+          </p>
+          <a
+            href="https://github.com/piedadedod-dotcom/open-downloader/releases"
+            class="mt-8 inline-flex h-11 items-center gap-2 rounded-md bg-accent px-5 text-sm font-semibold text-canvas transition hover:bg-[#a8f5d0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          >
+            Baixar para Windows
+            <svg viewBox="0 0 24 24" fill="none" class="h-4 w-4" aria-hidden="true">
+              <path d="M12 3v11m0 0 4-4m-4 4-4-4M5 16v3h14v-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+          <p class="mt-3 font-mono text-[11px] text-muted">Gratuito · Windows 10/11 · código aberto</p>
+
+          <div class="mt-8 px-2">
+            <div id="ad-slot-top" class="ad-placeholder mx-auto" role="complementary" aria-label="Espaço para anúncio horizontal de 728 por 90">
+              ad-slot-top · 728 × 90
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="grid gap-12 py-14 md:grid-cols-[minmax(0,1fr)_300px] md:gap-10 md:py-16">
+        <div class="min-w-0">
+          <section aria-labelledby="problem-heading">
+            <p class="font-mono text-xs text-accent">01 / por que existe</p>
+            <h2 id="problem-heading" class="mt-3 font-mono text-xl font-medium text-white">O problema</h2>
+            <p class="mt-4 max-w-2xl text-sm leading-7 text-slate-400 sm:text-base">
+              Cansado de sites cheios de pop-ups e botões falsos de download? Eu também. Por isso criei o Open Downloader.
+            </p>
+          </section>
+
+          <section class="mt-14" aria-labelledby="screenshot-heading">
+            <div class="mb-4 flex flex-wrap items-baseline justify-between gap-2">
+              <div>
+                <p class="font-mono text-xs text-accent">02 / por dentro</p>
+                <h2 id="screenshot-heading" class="mt-2 font-mono text-xl font-medium text-white">Uma janela. Sem truques.</h2>
+              </div>
+              <span class="font-mono text-[10px] text-muted">PRÉVIA DE INTERFACE</span>
+            </div>
+            <figure class="overflow-hidden rounded-md border border-border bg-[#010409]">
+              <div class="flex h-9 items-center gap-1.5 border-b border-border px-3">
+                <span class="h-2 w-2 rounded-full border border-border"></span>
+                <span class="h-2 w-2 rounded-full border border-border"></span>
+                <span class="h-2 w-2 rounded-full border border-border"></span>
+                <span class="ml-2 font-mono text-[10px] text-muted">Open Downloader</span>
+              </div>
+              <!-- Troque o SVG demonstrativo por um print real, por exemplo: src="assets/open-downloader.png". -->
+              <img
+                class="block h-auto w-full"
+                width="900"
+                height="500"
+                alt="Prévia demonstrativa da interface do Open Downloader; substitua por uma captura de tela real do aplicativo."
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 500'%3E%3Crect width='900' height='500' fill='%230d1117'/%3E%3Crect x='38' y='34' width='824' height='42' rx='6' fill='%23161b22' stroke='%2330363d'/%3E%3Ctext x='58' y='60' fill='%238b949e' font-family='monospace' font-size='14'%3ECole o link do vídeo aqui...%3C/text%3E%3Crect x='720' y='42' width='124' height='26' rx='4' fill='%238df0c0'/%3E%3Ctext x='752' y='60' fill='%230d1117' font-family='monospace' font-size='12'%3EAnalisar%3C/text%3E%3Ctext x='40' y='119' fill='%23e6edf3' font-family='monospace' font-size='15'%3EFila de downloads%3C/text%3E%3Crect x='38' y='139' width='824' height='82' rx='6' fill='%23161b22' stroke='%2330363d'/%3E%3Crect x='56' y='156' width='74' height='48' rx='4' fill='%2321262d'/%3E%3Cpath d='m85 168 18 12-18 12z' fill='%238df0c0'/%3E%3Ctext x='148' y='172' fill='%23e6edf3' font-family='monospace' font-size='13'%3EVideo de exemplo.mp4%3C/text%3E%3Ctext x='148' y='194' fill='%238b949e' font-family='monospace' font-size='11'%3EMP4 · Qualidade máxima%3C/text%3E%3Crect x='690' y='175' width='145' height='5' rx='2' fill='%2330363d'/%3E%3Crect x='690' y='175' width='92' height='5' rx='2' fill='%238df0c0'/%3E%3Crect x='38' y='235' width='824' height='82' rx='6' fill='%23161b22' stroke='%2330363d'/%3E%3Crect x='56' y='252' width='74' height='48' rx='4' fill='%2321262d'/%3E%3Cpath d='m85 264 18 12-18 12z' fill='%238df0c0'/%3E%3Ctext x='148' y='268' fill='%23e6edf3' font-family='monospace' font-size='13'%3EOutro video.mp4%3C/text%3E%3Ctext x='148' y='290' fill='%238b949e' font-family='monospace' font-size='11'%3ENa fila%3C/text%3E%3Crect x='690' y='271' width='145' height='5' rx='2' fill='%2330363d'/%3E%3Crect x='38' y='340' width='824' height='1' fill='%2330363d'/%3E%3Ctext x='40' y='374' fill='%238b949e' font-family='monospace' font-size='11'%3EPronto para baixar. Sem pegadinhas.%3C/text%3E%3C/svg%3E"
+              />
+              <figcaption class="border-t border-border px-4 py-2 font-mono text-[10px] text-muted">
+                Prévia ilustrativa. Substitua pelo print real do aplicativo.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section class="mt-14" aria-labelledby="features-heading">
+            <p class="font-mono text-xs text-accent">03 / o que ele faz</p>
+            <h2 id="features-heading" class="mt-3 font-mono text-xl font-medium text-white">Recursos</h2>
+            <div class="mt-5 grid gap-3 sm:grid-cols-2">
+              <article class="rounded-md border border-border bg-surface p-5">
+                <svg viewBox="0 0 24 24" fill="none" class="h-5 w-5 text-accent" aria-hidden="true">
+                  <path d="M4 5h16M4 12h16M4 19h16M8 3v4m8 3v4m-8 3v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+                <h3 class="mt-4 text-sm font-semibold text-white">Playlists</h3>
+                <p class="mt-2 text-xs leading-5 text-slate-400">Adicione uma playlist inteira e deixe os vídeos seguirem pela fila.</p>
+              </article>
+              <article class="rounded-md border border-border bg-surface p-5">
+                <svg viewBox="0 0 24 24" fill="none" class="h-5 w-5 text-accent" aria-hidden="true">
+                  <path d="M12 3v18m6-14H9.5a3.5 3.5 0 1 0 0 7h5a3.5 3.5 0 1 1 0 7H6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+                <h3 class="mt-4 text-sm font-semibold text-white">Compressão (CRF)</h3>
+                <p class="mt-2 text-xs leading-5 text-slate-400">Ajuste o CRF e o preset do encoder para controlar qualidade e tamanho.</p>
+              </article>
+              <article class="rounded-md border border-border bg-surface p-5">
+                <svg viewBox="0 0 24 24" fill="none" class="h-5 w-5 text-accent" aria-hidden="true">
+                  <path d="M4 5v14m16-14v14M4 12h4m8 0h4m-8-3v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <h3 class="mt-4 text-sm font-semibold text-white">Corte de vídeo</h3>
+                <p class="mt-2 text-xs leading-5 text-slate-400">Marque o início e o fim do trecho. Exporte sem reencodar quando possível.</p>
+              </article>
+              <article class="rounded-md border border-border bg-surface p-5">
+                <svg viewBox="0 0 24 24" fill="none" class="h-5 w-5 text-accent" aria-hidden="true">
+                  <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                </svg>
+                <h3 class="mt-4 text-sm font-semibold text-white">Fila de downloads</h3>
+                <p class="mt-2 text-xs leading-5 text-slate-400">Acompanhe o progresso, pause e retome seus downloads em um só lugar.</p>
+              </article>
+            </div>
+          </section>
+        </div>
+
+        <aside class="md:pt-1" aria-label="Anúncio">
+          <div class="md:sticky md:top-8">
+            <p class="mb-3 text-center font-mono text-[10px] text-muted">ANÚNCIO</p>
+            <div id="ad-slot-side" class="ad-placeholder mx-auto" role="complementary" aria-label="Espaço para anúncio vertical de 300 por 250">
+              ad-slot-side · 300 × 250
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="border-t border-border">
+      <div class="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-7 text-xs text-muted sm:flex-row sm:items-center sm:justify-between sm:px-8">
+        <a href="https://github.com/piedadedod-dotcom/open-downloader" class="inline-flex items-center gap-2 text-slate-300 hover:text-accent">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4" aria-hidden="true">
+            <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.23-1.62-1.23-1.62-1.01-.7.08-.69.08-.69 1.12.08 1.7 1.14 1.7 1.14.99 1.69 2.6 1.2 3.23.92.1-.72.39-1.2.7-1.48-2.47-.28-5.06-1.24-5.06-5.5 0-1.21.43-2.21 1.14-2.99-.11-.28-.5-1.42.11-2.95 0 0 .93-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.12-1.44 3.04-1.14 3.04-1.14.61 1.53.23 2.67.11 2.95.71.78 1.14 1.78 1.14 2.99 0 4.27-2.6 5.21-5.08 5.49.4.34.75 1.01.75 2.04v3.02c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z" />
+          </svg>
+          piedadedod-dotcom/open-downloader
+        </a>
+        <p>Feito com React, Electron e ☕ por sardinha</p>
+      </div>
+    </footer>
+  </body>
+</html>
