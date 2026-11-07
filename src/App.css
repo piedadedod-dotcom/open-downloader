@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
+  background: #0b0d12;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+::selection {
+  color: #fff;
+  background: rgba(167, 139, 250, 0.35);
+}
+
+.download-queue {
+  animation: queue-enter 240ms ease-out both;
+}
+
+.queue-item {
+  animation: queue-item-enter 180ms ease-out both;
+}
+
+.clipboard-toast {
+  animation: queue-enter 220ms ease-out both;
+}
+
+@keyframes queue-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes queue-item-enter {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  background: #f5f6fa;
+}
+
+[data-theme="light"] .bg-canvas {
+  background-color: #f5f6fa;
+}
+
+[data-theme="light"] .bg-panel,
+[data-theme="light"] .bg-panel\/80,
+[data-theme="light"] .bg-panel\/95 {
+  background-color: #fff;
+}
+
+[data-theme="light"] .bg-panel\/45 {
+  background-color: rgba(255, 255, 255, 0.65);
+}
+
+[data-theme="light"] .bg-canvas\/70 {
+  background-color: rgba(245, 246, 250, 0.85);
+}
+
+[data-theme="light"] .border-line {
+  border-color: #dfe3eb;
+}
+
+[data-theme="light"] .text-white {
+  color: #171923;
+}
+
+[data-theme="light"] .text-slate-100 {
+  color: #262a36;
+}
+
+[data-theme="light"] .text-slate-200 {
+  color: #343947;
+}
+
+[data-theme="light"] .text-slate-300 {
+  color: #4b5262;
+}
+
+[data-theme="light"] .text-slate-400,
+[data-theme="light"] .text-muted {
+  color: #697184;
+}
+
+[data-theme="light"] .placeholder\:text-slate-500::placeholder {
+  color: #81899a;
+}
+
+[data-theme="light"] .bg-slate-800 {
+  background-color: #dfe3eb;
+}
+
+[data-theme="light"] .bg-white\/5 {
+  background-color: rgba(31, 41, 55, 0.06);
+}

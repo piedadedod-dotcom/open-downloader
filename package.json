@@ -1,0 +1,70 @@
+﻿{
+    "name":  "open-downloader",
+    "private":  true,
+    "version":  "0.0.0",
+    "type":  "module",
+    "main":  "electron/main.js",
+    "scripts":  {
+                    "dev":  "concurrently -k -s first \"vite --host 127.0.0.1\" \"wait-on http://127.0.0.1:5173 \u0026\u0026 cross-env VITE_DEV_SERVER_URL=http://127.0.0.1:5173 electron .\"",
+                    "build":  "vite build",
+                    "lint":  "oxlint",
+                    "preview":  "vite preview",
+                    "dist":  "npm run build \u0026\u0026 electron-builder --win nsis portable",
+                    "dist:nsis":  "npm run build \u0026\u0026 electron-builder --win nsis",
+                    "dist:portable":  "npm run build \u0026\u0026 electron-builder --win portable"
+                },
+    "dependencies":  {
+                         "electron-store":  "^12.0.0",
+                         "react":  "^19.3.1",
+                         "react-dom":  "^19.3.1"
+                     },
+    "devDependencies":  {
+                            "@types/react":  "^19.3.0",
+                            "@types/react-dom":  "^19.3.0",
+                            "@vitejs/plugin-react":  "^6.1.2",
+                            "autoprefixer":  "^10.6.2",
+                            "concurrently":  "^10.0.6",
+                            "cross-env":  "^10.1.0",
+                            "electron":  "^45.2.3",
+                            "electron-builder":  "^26.18.0",
+                            "oxlint":  "^1.90.0",
+                            "postcss":  "^8.5.32",
+                            "tailwindcss":  "^3.4.19",
+                            "vite":  "^8.3.6",
+                            "wait-on":  "^9.5.1"
+                        },
+    "build":  {
+                  "appId":  "org.opendownloader.app",
+                  "productName":  "Open Downloader",
+                  "directories":  {
+                                      "output":  "release"
+                                  },
+                  "files":  [
+                                "dist/**/*",
+                                "electron/**/*",
+                                "package.json"
+                            ],
+                  "extraResources":  [
+                                         {
+                                             "from":  "bin",
+                                             "to":  "bin",
+                                             "filter":  [
+                                                            "yt-dlp.exe",
+                                                            "ffmpeg.exe"
+                                                        ]
+                                         }
+                                     ],
+                  "win":  {
+                              "target":  [
+                                             "nsis",
+                                             "portable"
+                                         ]
+                          },
+                  "nsis":  {
+                               "oneClick":  false,
+                               "allowToChangeInstallationDirectory":  true,
+                               "createDesktopShortcut":  true
+                           },
+                  "icon":  "build/icon.ico"
+              }
+}
